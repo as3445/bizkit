@@ -6,31 +6,37 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-    	
+
         <?php if(of_get_option('show_featured_image_single') == 'true' && has_post_thumbnail() ) : ?>
         <div class="entry-featured-image">
         	<?php the_post_thumbnail( 'BizKitsingle' ); ?>
         </div>
         <?php endif; ?>
-        
+
 		<h1 class="entry-title"><?php the_title(); ?></h1>
-		
+
         <?php if ( function_exists('the_ratings') && (!of_get_option('show_rat_on_single') || of_get_option('show_rat_on_single') == 'true')) : ?>
         <div class="entry-meta">
 			<?php the_ratings(); ?>
 		</div><!-- .entry-meta -->
         <?php endif; ?>
-        
+
         <?php if (!of_get_option('show_pd_on_single') || of_get_option('show_pd_on_single') == 'true') : ?>
 		<div class="entry-meta">
 			<?php BizKit_posted_on(); ?>
 		</div><!-- .entry-meta -->
         <?php endif; ?>
-        
+
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+
 		<?php the_content(); ?>
+		No, it's pistol dumbass!
+		<div class="videowrapper">
+			<iframe width="100%" height="100%" src="<?php echo CFS()->get('video_link'); ?>" frameborder="0" allowfullscreen></iframe>
+		</div>
+
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'BizKit' ),
@@ -74,8 +80,8 @@
 				the_title_attribute( 'echo=0' )
 			);
 		?>
-		<?php endif; ?> 
-        
+		<?php endif; ?>
+
 		<?php edit_post_link( __( 'Edit', 'BizKit' ), '<div class="entry-meta-bottom-item edit-link">', '</div>' ); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-## -->
