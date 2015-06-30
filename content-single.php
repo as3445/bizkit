@@ -31,10 +31,22 @@
 
 	<div class="entry-content">
 
-		<?php the_content(); ?>
-		No, it's pistol dumbass!
+		<!-- <?php the_content(); ?>
+		No, it's pistol dumbass! -->
 		<div class="videowrapper">
 			<iframe width="100%" height="100%" src="<?php echo CFS()->get('video_link'); ?>" frameborder="0" allowfullscreen></iframe>
+		</div>
+
+		<div class="amazon_items">
+			<ul>
+				<?php foreach(CFS()->get('amazon_links') as $key => $item): ?>
+					<li>
+						<a href = "<?php echo ($item['item']); ?>">
+							<?php echo $item['description']; ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 
 		<?php
